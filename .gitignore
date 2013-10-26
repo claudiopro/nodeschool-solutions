@@ -1,0 +1,4 @@
+# Ignore NPM debug logs
+npm-debug.log
+# Mac OS X resource fork
+.DS_Store
