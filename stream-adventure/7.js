@@ -68,4 +68,5 @@ var server = http.createServer(function(req, res) {
 	else
 		res.end()
 })
+// This doesn't work, see https://github.com/nodeschool/discussions/issues/44
 server.listen(8000)
