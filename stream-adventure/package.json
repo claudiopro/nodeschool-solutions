@@ -1,0 +1,19 @@
+{
+  "name": "stream-adventure",
+  "version": "1.0.0",
+  "description": "Solutions to stream-adventure",
+  "main": "10_html_stream.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concat-stream": "^1.5.0",
+    "duplexer2": "0.0.2",
+    "request": "^2.61.0",
+    "split": "^1.0.0",
+    "through": "^2.3.8",
+    "trumpet": "^1.7.1"
+  }
+}
