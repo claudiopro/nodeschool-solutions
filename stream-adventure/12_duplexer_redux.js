@@ -31,11 +31,20 @@ your solution file is located.
 */
 
 var duplexer2 = require('duplexer2');
+var split = require('split');
+var through = require('through');
 
 module.exports = function (counter) {
   // return a duplex stream to count countries on the writable side
   // and pass through `counter` on the readable side
   var countryCodes = {};
-
-  // return duplexer2(??, counter);
+  counter
+    .pipe(split())
+    .pipe(through(function(buf){
+      var item = JSON.parse(buf);
+      countryCodes[item.country] = (countryCodes[item.country] || 0) + 1;
+    }, function() {
+      counter.setCounts(countryCodes);
+    }));
+  return duplexer2(process.stdout, counter);
 };
