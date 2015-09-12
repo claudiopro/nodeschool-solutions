@@ -14,9 +14,9 @@ For example, we can stream a file to the response object:
     var server = http.createServer(function (req, res) {
         fs.createReadStream('file.txt').pipe(res);
     });
-    server.listen(8000);
+    server.listen(process.argv[2]);
 
-This is great because our server can response immediately without buffering
+This is great because our server can respond immediately without buffering
 everything in memory first.
 
 We can also stream a request to populate a file with data:
@@ -29,30 +29,35 @@ We can also stream a request to populate a file with data:
         }
         res.end('beep boop\n');
     });
-    server.listen(8000);
+    server.listen(process.argv[2]);
 
 You can test this post server with curl:
 
+    $ node server.js 8000 &
     $ echo hack the planet | curl -d@- http://localhost:8000
     beep boop
     $ cat post.txt
     hack the planet
 
-Your http server should listen on port 8000 and convert the POST request written
-to it to upper-case using the same approach as the TRANSFORM example.
+Your http server should listen on the port given at process.argv[2] and convert
+the POST request written to it to upper-case using the same approach as the
+TRANSFORM example.
 
-As a refresher, here's an example with the default through callbacks explicitly
+As a refresher, here's an example with the default through2 callbacks explicitly
 defined:
 
-    var through = require('through')
+    var through = require('through2');
     process.stdin.pipe(through(write, end)).pipe(process.stdout);
-    
-    function write (buf) { this.queue(buf) }
-    function end () { this.queue(null)
+
+    function write (buf, _, next) {
+      this.push(buf);
+      next();
+    }
+    function end (done) { done(); }
 
 Do that, but send upper-case data in your http server in response to POST data.
 
-Make sure to `npm install through` in the directory where your solution file
+Make sure to `npm install through2` in the directory where your solution file
 lives.
 
 To verify your program, run: `stream-adventure verify program.js`.
@@ -68,5 +73,4 @@ var server = http.createServer(function(req, res) {
 	else
 		res.end()
 })
-// This doesn't work, see https://github.com/nodeschool/discussions/issues/44
-server.listen(8000)
+server.listen(process.argv[2])

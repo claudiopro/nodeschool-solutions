@@ -1,6 +1,6 @@
 /*
 
-Send an HTTP POST request to http://localhost:8000 and pipe process.stdin into
+Send an HTTP POST request to http://localhost:8099 and pipe process.stdin into
 it. Pipe the response stream to process.stdout.
 
 Here's an example of how to use the `request` module to send a GET request,
@@ -13,7 +13,7 @@ To make a POST request, just call `request.post()` instead of `request()`:
 
     var request = require('request');
     var r = request.post('http://beep.boop:80/');
-    
+
 The `r` object that you get back from `request.post()` is a readable+writable
 stream so you can pipe a readable stream into it (`src.pipe(r)`) and you can
 pipe it to a writable stream (`r.pipe(dst)`).
@@ -29,4 +29,4 @@ To verify your program, run: `stream-adventure verify program.js`.
 
 */
 var request = require('request')
-process.stdin.pipe(request.post('http://localhost:8000')).pipe(process.stdout)
+process.stdin.pipe(request.post('http://localhost:8099')).pipe(process.stdout)
