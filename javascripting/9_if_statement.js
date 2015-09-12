@@ -30,6 +30,7 @@ Check to see if your program is correct by running this command:
 
 javascripting verify if-statement.js
 */
+
 var fruit = 'orange';
 if (fruit.length > 5) {
   console.log('The fruit name has more than five characters.');
