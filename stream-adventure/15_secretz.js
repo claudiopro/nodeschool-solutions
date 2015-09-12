@@ -49,14 +49,9 @@ parser.on('entry', function (e) {
 	// e is a readable stream of the file contents from the archive
 	if (e.type === 'File') {
 		e.pipe(crypto.createHash('md5', {encoding: 'hex'}))
-			.pipe(through(null, function() {
-				this.queue(' ' + e.path + '\n')
-			}))
-/* -- OR -- 
 			.pipe(through(function(buf) {
 				this.queue(buf.toString() + ' ' + e.path + '\n')
 			}))
-*/
 			.pipe(process.stdout)
 	}
 })
