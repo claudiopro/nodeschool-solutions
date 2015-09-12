@@ -30,6 +30,7 @@ your solution file is located.
 
 */
 
+var stream = require('readable-stream');
 var duplexer2 = require('duplexer2');
 var split = require('split');
 var through = require('through');
@@ -38,6 +39,12 @@ module.exports = function (counter) {
   // return a duplex stream to count countries on the writable side
   // and pass through `counter` on the readable side
   var countryCodes = {};
+
+  var writable = new stream.Writable({objectMode: true});
+  writable._write = function() {
+    // no-op
+  };
+
   counter
     .pipe(split())
     .pipe(through(function(buf){
@@ -46,5 +53,6 @@ module.exports = function (counter) {
     }, function() {
       counter.setCounts(countryCodes);
     }));
-  return duplexer2(process.stdout, counter);
+
+  return duplexer2(writable, counter);
 };
