@@ -1,0 +1,7 @@
+$padding: 20px;
+$page-width: 1400px;
+
+.container {
+  padding: $padding;
+  width: $page-width * .8 - 2 * $padding;
+}
