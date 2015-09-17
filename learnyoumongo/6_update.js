@@ -50,7 +50,7 @@ var mongo = require('mongodb').MongoClient
 // URL to the database for this exercise
 var url = 'mongodb://localhost:27017/' + process.argv[2]
 
-const NAME = 'Tina'
+const USERNAME = 'tinatime'
 
 mongo.connect(url, function(err, db) {
 	// db gives access to the database
@@ -60,10 +60,11 @@ mongo.connect(url, function(err, db) {
 	}
 	// collection returns a named collection
 	db.collection('users')
-		// find executes a query on the collection
+		// updates the items with the given username
 		.update({
-      'username': 'tinatime'
+      'username': USERNAME
     }, {
+      // updates only the named properties with the desired value
       $set: {
         'age': 40
       }
