@@ -3,7 +3,7 @@ var mongo = require('mongodb').MongoClient
 module.exports = function(limit) {
 	// URL to the database for this exercise
 	var url = 'mongodb://localhost:27017/learnyoumongo'
-	// 
+	// read the min age from stdin
 	var minAge = parseInt(process.argv[2], 10)
 	mongo.connect(url, function(err, db) {
 		// db gives access to the database
