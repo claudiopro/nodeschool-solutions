@@ -4,3 +4,4 @@ npm-debug.log
 .DS_Store
 # Node modules
 node_modules
+/learnyoumongo/data/
