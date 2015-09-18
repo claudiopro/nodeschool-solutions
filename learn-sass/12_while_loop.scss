@@ -1,0 +1,7 @@
+$heading-level: 1;
+@while $heading-level < 7 {
+  h#{$heading-level} {
+    font-size: 24px - $heading-level * 3px;
+  }
+  $heading-level: $heading-level + 1;
+}
