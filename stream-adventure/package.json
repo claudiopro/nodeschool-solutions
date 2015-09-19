@@ -17,6 +17,7 @@
     "stream-combiner": "^0.2.2",
     "tar": "^2.2.1",
     "through": "^2.3.8",
+    "through2": "^2.0.0",
     "trumpet": "^1.7.1"
   }
 }
