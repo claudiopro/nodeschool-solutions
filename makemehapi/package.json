@@ -8,6 +8,7 @@
   "author": "Claudio Procida",
   "license": "MIT",
   "dependencies": {
+    "boom": "^2.8.0",
     "h2o2": "^4.0.1",
     "handlebars": "^4.0.2",
     "hapi": "^10.0.0",
