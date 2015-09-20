@@ -11,3 +11,4 @@ Solutions to [NodeSchools](http://nodeschool.io) exercises.
 - [x] learn-sass
 - [x] how-to-npm
 - [x] learnyoumongo
+- [x] makemehapi
