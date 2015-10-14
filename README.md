@@ -15,3 +15,7 @@ Solutions to [NodeSchools](http://nodeschool.io) exercises.
 - [ ] functional-javascript
 - [ ] tower-of-babel
 
+# License
+
+[MIT](http://opensource.org/licenses/MIT)
+
