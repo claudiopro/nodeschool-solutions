@@ -12,3 +12,6 @@ Solutions to [NodeSchools](http://nodeschool.io) exercises.
 - [x] how-to-npm
 - [x] learnyoumongo
 - [x] makemehapi
+- [ ] functional-javascript
+- [ ] tower-of-babel
+
