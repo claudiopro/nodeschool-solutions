@@ -13,7 +13,7 @@ Solutions to [NodeSchools](http://nodeschool.io) exercises.
 - [x] learnyoumongo
 - [x] makemehapi
 - [ ] functional-javascript
-- [ ] tower-of-babel
+- [x] tower-of-babel
 
 # License
 
